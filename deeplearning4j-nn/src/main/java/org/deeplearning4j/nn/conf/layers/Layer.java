@@ -26,6 +26,7 @@ import org.deeplearning4j.nn.conf.NeuralNetConfiguration;
 import org.deeplearning4j.nn.conf.Updater;
 import org.deeplearning4j.nn.conf.inputs.InputType;
 import org.deeplearning4j.nn.conf.layers.misc.FrozenLayer;
+import org.deeplearning4j.nn.conf.layers.objdetect.Yolo2OutputLayer;
 import org.deeplearning4j.nn.conf.layers.variational.VariationalAutoencoder;
 import org.deeplearning4j.nn.conf.memory.LayerMemoryReport;
 import org.deeplearning4j.optimize.api.IterationListener;
@@ -64,7 +65,10 @@ import java.util.Collection;
                 @JsonSubTypes.Type(value = DropoutLayer.class, name = "dropout"),
                 @JsonSubTypes.Type(value = GlobalPoolingLayer.class, name = "GlobalPooling"),
                 @JsonSubTypes.Type(value = ZeroPaddingLayer.class, name = "zeroPadding"),
-                @JsonSubTypes.Type(value = FrozenLayer.class, name = "FrozenLayer")})
+                @JsonSubTypes.Type(value = FrozenLayer.class, name = "FrozenLayer"),
+                @JsonSubTypes.Type(value = Yolo2OutputLayer.class, name = "Yolo2OutputLayer")
+
+})
 @Data
 @NoArgsConstructor
 public abstract class Layer implements Serializable, Cloneable {
